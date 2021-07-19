@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	libstack "github.com/portainer/docker-compose-wrapper"
-	"github.com/portainer/docker-compose-wrapper/composebinary"
+	"github.com/portainer/docker-compose-wrapper/compose"
 
 	portainer "github.com/portainer/portainer/api"
 	"github.com/portainer/portainer/api/http/proxy"
@@ -23,7 +23,7 @@ type ComposeStackManager struct {
 
 // NewComposeStackManager returns a docker-compose wrapper if corresponding binary present, otherwise nil
 func NewComposeStackManager(binaryPath string, configPath string, proxyManager *proxy.Manager) (*ComposeStackManager, error) {
-	deployer, err := composebinary.NewDockerComposeDeployer(binaryPath, configPath)
+	deployer, err := compose.NewComposeDeployer(binaryPath, configPath)
 	if err != nil {
 		return nil, err
 	}

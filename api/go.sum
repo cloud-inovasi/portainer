@@ -1067,8 +1067,8 @@ github.com/pkg/profile v1.5.0/go.mod h1:qBsxPvzyUincmltOk6iyRVxHYg4adc0OFOv72ZdL
 github.com/pmezard/go-difflib v0.0.0-20151028094244-d8ed2627bdf0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
-github.com/portainer/docker-compose-wrapper v0.0.0-20210714130647-c385c84eee52 h1:VbNjXCA3aXqc5Cwwp6u9P9V3QN3Nr0EH6iS+mBvsXPA=
-github.com/portainer/docker-compose-wrapper v0.0.0-20210714130647-c385c84eee52/go.mod h1:p1cGeb1tX1rLi914ZgwLmcOlq1WaGY2p0UOZ/tiPp14=
+github.com/portainer/docker-compose-wrapper v0.0.0-20210719115040-b82f1d4be772 h1:MJxwuiEgQ2zo6VBGrwL6Ff7AnjQ9UMXIoAvuAzlc254=
+github.com/portainer/docker-compose-wrapper v0.0.0-20210719115040-b82f1d4be772/go.mod h1:p1cGeb1tX1rLi914ZgwLmcOlq1WaGY2p0UOZ/tiPp14=
 github.com/portainer/libcrypto v0.0.0-20190723020515-23ebe86ab2c2 h1:0PfgGLys9yHr4rtnirg0W0Cjvv6/DzxBIZk5sV59208=
 github.com/portainer/libcrypto v0.0.0-20190723020515-23ebe86ab2c2/go.mod h1:/wIeGwJOMYc1JplE/OvYMO5korce39HddIfI8VKGyAM=
 github.com/portainer/libhttp v0.0.0-20190806161843-ba068f58be33 h1:H8HR2dHdBf8HANSkUyVw4o8+4tegGcd+zyKZ3e599II=
