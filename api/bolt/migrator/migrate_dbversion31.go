@@ -16,6 +16,10 @@ func (m *Migrator) migrateDBVersionTo32() error {
 		return err
 	}
 
+	err = m.migrateAdminGroupSearchSettings()
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -121,4 +125,15 @@ func (m *Migrator) updateDockerhubToDB32() error {
 	}
 
 	return m.registryService.CreateRegistry(registry)
+}
+
+func (m *Migrator) migrateAdminGroupSearchSettings() error {
+	legacySettings, err := m.settingsService.Settings()
+	if err != nil {
+		return err
+	}
+	if legacySettings.LDAPSettings.AdminGroupSearchSettings == nil {
+		legacySettings.LDAPSettings.AdminGroupSearchSettings = []portainer.LDAPGroupSearchSettings{}
+	}
+	return m.settingsService.UpdateSettings(legacySettings)
 }
