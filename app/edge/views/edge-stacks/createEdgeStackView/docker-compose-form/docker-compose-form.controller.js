@@ -6,7 +6,7 @@ class DockerComposeFormController {
     this.methodOptions = [
       { id: 'method_editor', icon: 'fa fa-edit', label: 'Web editor', description: 'Use our Web editor', value: 'editor' },
       { id: 'method_upload', icon: 'fa fa-upload', label: 'Upload', description: 'Upload from your computer', value: 'upload' },
-      { id: 'method_repository', icon: 'fa fa-git', label: 'Repository', description: 'Use a git repository', value: 'repository' },
+      { id: 'method_repository', icon: 'fab fa-github', label: 'Repository', description: 'Use a git repository', value: 'repository' },
       { id: 'method_template', icon: 'fa fa-rocket', label: 'Template', description: 'Use an Edge stack template', value: 'template' },
     ];
 

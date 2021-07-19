@@ -5,7 +5,7 @@ export default class EdgeStackDeploymentTypeSelectorController {
       { id: 'deployment_compose', icon: 'fab fa-docker', label: 'Compose', description: 'docker-compose format', value: 0 },
       {
         id: 'deployment_kube',
-        icon: 'fab fa-kubernetes',
+        icon: 'fa fa-cubes',
         label: 'Kubernetes',
         description: 'Kubernetes manifest format',
         value: 1,

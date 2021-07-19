@@ -35,6 +35,10 @@ export class EditEdgeStackFormController {
     this.checkEndpointTypes(groups);
   }
 
+  isFormValid() {
+    return this.model.EdgeGroups.length && this.model.StackFileContent && this.validateEndpointsForDeployment();
+  }
+
   checkEndpointTypes(groups) {
     const edgeGroups = groups.map((id) => this.edgeGroups.find((e) => e.Id === id));
     this.state.endpointTypes = edgeGroups.flatMap((group) => group.EndpointTypes);
@@ -69,10 +73,6 @@ export class EditEdgeStackFormController {
 
   validateEndpointsForDeployment() {
     return this.model.DeploymentType == 0 || !this.hasDockerEndpoint();
-  }
-
-  isFormValid() {
-    return this.model.EdgeGroups.length && this.model.StackFileContent && this.validateEndpointsForDeployment();
   }
 
   $onInit() {

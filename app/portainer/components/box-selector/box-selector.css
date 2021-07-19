@@ -14,6 +14,7 @@
   font-size: 14px;
   margin-bottom: 5px;
   font-weight: bold;
+  user-select: none;
 }
 
 .boxselector_header .fa,
@@ -44,7 +45,6 @@
 
 .box-selector-item input:disabled + label,
 .boxselector_wrapper label.boxselector_disabled {
-  background: #cacaca;
   border-color: #787878;
   color: #787878;
   cursor: not-allowed;
