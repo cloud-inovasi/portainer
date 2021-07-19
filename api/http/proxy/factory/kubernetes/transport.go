@@ -41,7 +41,7 @@ type (
 )
 
 // NewLocalTransport returns a new transport that can be used to send requests to the local Kubernetes API
-func NewLocalTransport(tokenManager *tokenManager) (*localTransport, error) {
+func NewLocalTransport(tokenManager *tokenManager, endpointIdentifier portainer.EndpointID) (*localTransport, error) {
 	config, err := crypto.CreateTLSConfigurationFromBytes(nil, nil, nil, true, true)
 	if err != nil {
 		return nil, err
@@ -52,6 +52,7 @@ func NewLocalTransport(tokenManager *tokenManager) (*localTransport, error) {
 			TLSClientConfig: config,
 		},
 		tokenManager: tokenManager,
+		endpointIdentifier: endpointIdentifier,
 	}
 
 	return transport, nil
@@ -70,7 +71,7 @@ func (transport *localTransport) RoundTrip(request *http.Request) (*http.Respons
 }
 
 // NewAgentTransport returns a new transport that can be used to send signed requests to a Portainer agent
-func NewAgentTransport(datastore portainer.DataStore, signatureService portainer.DigitalSignatureService, tlsConfig *tls.Config, tokenManager *tokenManager) *agentTransport {
+func NewAgentTransport(datastore portainer.DataStore, signatureService portainer.DigitalSignatureService, tlsConfig *tls.Config, tokenManager *tokenManager, endpointIdentifier portainer.EndpointID) *agentTransport {
 	transport := &agentTransport{
 		dataStore: datastore,
 		httpTransport: &http.Transport{
@@ -78,6 +79,7 @@ func NewAgentTransport(datastore portainer.DataStore, signatureService portainer
 		},
 		tokenManager:     tokenManager,
 		signatureService: signatureService,
+		endpointIdentifier: endpointIdentifier,
 	}
 
 	return transport
@@ -158,7 +160,7 @@ func getRoundTripToken(
 	if tokenData.Role == portainer.AdministratorRole {
 		token = tokenManager.getAdminServiceAccountToken()
 	} else {
-		token, err = tokenManager.getUserServiceAccountToken(int(tokenData.ID))
+		token, err = tokenManager.getUserServiceAccountToken(int(tokenData.ID), endpointIdentifier)
 		if err != nil {
 			log.Printf("Failed retrieving service account token: %v", err)
 			return "", err
